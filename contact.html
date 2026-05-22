@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Excelsior Consultancy. Book a 15-minute discovery call or send the team a written brief.">
+  <meta name="theme-color" content="#070503">
+  <title>Contact · Excelsior Consultancy</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M5 28 L16 6 L25 24 M22 18 L25 24 L19 22' fill='none' stroke='%23C9A45E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand" aria-label="Excelsior Consultancy">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M5 28 L16 6 L25 24 M22 18 L25 24 L19 22"/>
+        </svg>
+        <span class="brand-name">Excelsior</span>
+        <span class="brand-suffix">Consultancy</span>
+      </a>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <a href="#book" class="btn btn-primary">Book a call →</a>
+      </div>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu">Menu</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================
+         PAGE HEADER
+         ============================================ -->
+    <section class="page-header">
+      <div class="container">
+        <span class="label">Contact</span>
+        <h1>Direct line to the team.</h1>
+        <p class="lead">Fifteen minutes on Zoom, no follow-up if it isn't a fit. If a call doesn't suit, send the brief in writing instead and we'll come back within one working day.</p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT GRID
+         ============================================ -->
+    <section class="section" id="book">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Form -->
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="field-row">
+              <div class="field">
+                <label class="field-label" for="cf-name">Name</label>
+                <input class="input" id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Daniel MacAllister">
+              </div>
+              <div class="field">
+                <label class="field-label" for="cf-email">Email</label>
+                <input class="input" id="cf-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label class="field-label" for="cf-phone">Phone (optional)</label>
+                <input class="input" id="cf-phone" name="phone" type="tel" autocomplete="tel" placeholder="+44 7xxx xxx xxx">
+              </div>
+              <div class="field">
+                <label class="field-label" for="cf-interest">Interest</label>
+                <select class="select" id="cf-interest" name="interest">
+                  <option value="">Pick one (optional)</option>
+                  <option value="algorithmic">Algorithmic trading systems</option>
+                  <option value="account-management">Account management and automation</option>
+                  <option value="prop-firm">Prop firm advisory</option>
+                  <option value="fintech">Fintech consulting (B2B)</option>
+                  <option value="other">Something else</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="cf-message">Brief, problem, or question</label>
+              <textarea class="textarea" id="cf-message" name="message" placeholder="A sentence is fine. The more specific you can be about the actual problem, the more useful the call." rows="5"></textarea>
+            </div>
+
+            <div class="field" style="flex-direction: row; align-items: flex-start; gap: 0.75rem;">
+              <input type="checkbox" id="cf-risk" name="risk_ack" required style="margin-top: 0.25rem; accent-color: var(--gold);">
+              <label class="field-label" for="cf-risk" style="text-transform: none; letter-spacing: 0.02em; font-size: 0.8125rem; color: var(--ink-soft); line-height: 1.55;">I understand trading carries risk of capital loss and that Excelsior Consultancy is not authorised by the FCA.</label>
+            </div>
+
+            <div class="form-error" id="formError" role="alert"></div>
+            <div class="form-success" id="formSuccess" role="status"></div>
+
+            <div style="display:flex; gap: 0.85rem; align-items:center; flex-wrap: wrap;">
+              <button type="submit" class="btn btn-primary" id="formSubmit">Send to the team →</button>
+              <span class="muted" style="font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase;">Reply within 1 working day</span>
+            </div>
+          </form>
+
+          <!-- Side meta -->
+          <aside class="contact-meta">
+            <div class="contact-meta-block">
+              <span class="label">Discovery call</span>
+              <h3>Fifteen minutes, free</h3>
+              <p>Bring the actual problem you're trying to solve. If a call doesn't fit, write to us instead.</p>
+              <p style="margin-top: 0.75rem;"><a href="#" id="bookingLink">Book a slot →</a></p>
+            </div>
+
+            <div class="contact-meta-block">
+              <span class="label">Email</span>
+              <h3>Direct to the team</h3>
+              <p><a href="mailto:hello@excelsiorconsultancy.com">hello@excelsiorconsultancy.com</a></p>
+              <p style="margin-top: 0.45rem; font-size: 0.8125rem;" class="muted">Replies within one working day. Earlier most days.</p>
+            </div>
+
+            <div class="contact-meta-block">
+              <span class="label">Location</span>
+              <h3>UK</h3>
+              <p>UK consultants connecting the world stock market to you via cloud servers. Calls are on Zoom by default; in-person available on request.</p>
+            </div>
+
+            <div class="contact-meta-block">
+              <span class="label">Existing members</span>
+              <h3>Member portal</h3>
+              <p>If you're already an Algo by Excelsior member, sign in to the portal to manage your account and onboarding.</p>
+              <p style="margin-top: 0.75rem;"><a href="https://algomembers.vercel.app/?signin" target="_blank" rel="noopener">Member sign-in →</a></p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-row">
+        <div class="footer-meta">
+          <span>Excelsior Consultancy</span>
+          <span class="sep">·</span>
+          <span>UK</span>
+          <span class="sep">·</span>
+          <span>Live since 2023</span>
+        </div>
+        <ul class="footer-links">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <p class="footer-disclaimer">Excelsior Consultancy provides automated trading software and consulting services. Not regulated investment advice. Trading carries risk of capital loss; past performance does not guarantee future results. Quoted figures are based on backtest and forward-test data; verified statements available on request. Algo by Excelsior is the firm's flagship trading product.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll shadow + mobile menu toggle
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 8);
+    }, { passive: true });
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    }
+
+    // ==========================================================
+    // CONTACT FORM
+    //
+    // Posts to the same admin /api/leads endpoint the Algo
+    // marketing site uses, so contact form submissions on the
+    // consultancy site appear in the same admin Leads tab. The
+    // payload carries source='excelsior-consultancy' so the admin
+    // can filter consultancy enquiries vs trading-product enquiries.
+    //
+    // No backend on this site; admin URL is below. Update if the
+    // admin moves.
+    // ==========================================================
+    const LEADS_API_URL = 'https://algoleads.vercel.app/api/leads';
+    const BOOKING_URL   = ''; // Set to Calendly link when ready
+
+    // Wire the discovery-call link
+    const bookingLink = document.getElementById('bookingLink');
+    if (bookingLink) {
+      if (BOOKING_URL) {
+        bookingLink.href = BOOKING_URL;
+        bookingLink.target = '_blank';
+        bookingLink.rel = 'noopener';
+      } else {
+        bookingLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.getElementById('cf-name').focus();
+        });
+      }
+    }
+
+    const form    = document.getElementById('contactForm');
+    const errEl   = document.getElementById('formError');
+    const okEl    = document.getElementById('formSuccess');
+    const submit  = document.getElementById('formSubmit');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errEl.textContent = '';
+      okEl.textContent  = '';
+
+      if (!form.checkValidity()) {
+        const invalid = form.querySelector(':invalid');
+        if (invalid) invalid.focus();
+        errEl.textContent = 'Please complete the required fields.';
+        return;
+      }
+
+      const fd = new FormData(form);
+      const payload = {
+        name:     fd.get('name'),
+        email:    fd.get('email'),
+        phone:    fd.get('phone') || '',
+        interest: fd.get('interest') || '',
+        message:  fd.get('message') || '',
+        risk_ack: fd.get('risk_ack') ? 1 : 0,
+        source:   'excelsior-consultancy',
+        client_reference_id: 'xc_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 8),
+      };
+
+      submit.disabled = true;
+      const original = submit.textContent;
+      submit.textContent = 'Sending…';
+      try {
+        const res = await fetch(LEADS_API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          keepalive: true,
+          mode: 'cors',
+        });
+        if (!res.ok) throw new Error('Server returned ' + res.status);
+        okEl.textContent = 'Sent. We\'ll reply within one working day.';
+        form.reset();
+        submit.textContent = 'Sent ✓';
+      } catch (err) {
+        errEl.textContent = 'Couldn\'t send · please email hello@excelsiorconsultancy.com directly.';
+        submit.textContent = original;
+        submit.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
