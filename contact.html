@@ -6,21 +6,33 @@
   <meta name="description" content="Contact Excelsior Consultancy. Book a 15-minute discovery call or send the team a written brief.">
   <meta name="theme-color" content="#070503">
   <title>Contact · Excelsior Consultancy</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M5 28 L16 6 L25 24 M22 18 L25 24 L19 22' fill='none' stroke='%23C9A45E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="logo/favicon-32.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="intro.js" defer></script>
 </head>
 <body>
+  <!-- ============================================
+       Unicorn Studio aura background · sits behind
+       all content, tinted via CSS to read in the
+       brand's black + antique-gold palette. The
+       loader script self-guards against double init
+       so it's safe to include on every page.
+       ============================================ -->
+  <div class="aura-background-component" aria-hidden="true">
+    <div data-us-project="TIWE0oFfvUmetsFoxL6u"></div>
+    <script type="text/javascript">
+      !function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();
+    </script>
+  </div>
 
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a href="index.html" class="brand" aria-label="Excelsior Consultancy">
-        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-          <path d="M5 28 L16 6 L25 24 M22 18 L25 24 L19 22"/>
-        </svg>
+        <img class="brand-mark" src="logo/excelsior-loader-transparent.png" alt="" aria-hidden="true" width="32" height="32">
         <span class="brand-name">Excelsior</span>
         <span class="brand-suffix">Consultancy</span>
       </a>
@@ -132,10 +144,10 @@
             </div>
 
             <div class="contact-meta-block">
-              <span class="label">Existing members</span>
-              <h3>Member portal</h3>
-              <p>If you're already an Algo by Excelsior member, sign in to the portal to manage your account and onboarding.</p>
-              <p style="margin-top: 0.75rem;"><a href="https://algomembers.vercel.app/?signin" target="_blank" rel="noopener">Member sign-in →</a></p>
+              <span class="label">Flagship product</span>
+              <h3>Algo by Excelsior</h3>
+              <p>The firm's published trading system. Visit the product site for verified performance, full specification, and the member sign-in.</p>
+              <p style="margin-top: 0.75rem;"><a href="https://algobyexcelsiorwebsite.vercel.app" target="_blank" rel="noopener">View product →</a></p>
             </div>
           </aside>
         </div>
@@ -160,7 +172,7 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      <p class="footer-disclaimer">Excelsior Consultancy provides automated trading software and consulting services. Not regulated investment advice. Trading carries risk of capital loss; past performance does not guarantee future results. Quoted figures are based on backtest and forward-test data; verified statements available on request. Algo by Excelsior is the firm's flagship trading product.</p>
+      <p class="footer-disclaimer">Excelsior Consultancy provides automated trading software and consulting services. Not regulated investment advice. Trading carries risk of capital loss; past performance does not guarantee future results. Quoted figures are based on backtest and forward-test data; verified statements available on request. <a href="https://algobyexcelsiorwebsite.vercel.app" target="_blank" rel="noopener" style="color: var(--gold);">Algo by Excelsior</a> is the firm's flagship trading product.</p>
     </div>
   </footer>
 
@@ -179,16 +191,14 @@
     // ==========================================================
     // CONTACT FORM
     //
-    // Posts to the same admin /api/leads endpoint the Algo
-    // marketing site uses, so contact form submissions on the
-    // consultancy site appear in the same admin Leads tab. The
-    // payload carries source='excelsior-consultancy' so the admin
-    // can filter consultancy enquiries vs trading-product enquiries.
-    //
-    // No backend on this site; admin URL is below. Update if the
-    // admin moves.
+    // No backend wired in yet. The form opens the visitor's email
+    // client with the fields pre-composed and the team's address
+    // pre-populated, so a real email lands in our inbox without
+    // any server infrastructure. When a proper backend or email-
+    // forwarding service (e.g. Formspree, Cloudflare Worker) is
+    // ready, swap the submit handler.
     // ==========================================================
-    const LEADS_API_URL = 'https://algoleads.vercel.app/api/leads';
+    const CONTACT_EMAIL = 'hello@excelsiorconsultancy.com';
     const BOOKING_URL   = ''; // Set to Calendly link when ready
 
     // Wire the discovery-call link
@@ -211,7 +221,7 @@
     const okEl    = document.getElementById('formSuccess');
     const submit  = document.getElementById('formSubmit');
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       errEl.textContent = '';
       okEl.textContent  = '';
@@ -224,37 +234,35 @@
       }
 
       const fd = new FormData(form);
-      const payload = {
-        name:     fd.get('name'),
-        email:    fd.get('email'),
-        phone:    fd.get('phone') || '',
-        interest: fd.get('interest') || '',
-        message:  fd.get('message') || '',
-        risk_ack: fd.get('risk_ack') ? 1 : 0,
-        source:   'excelsior-consultancy',
-        client_reference_id: 'xc_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 8),
-      };
+      const name     = String(fd.get('name')     || '').trim();
+      const email    = String(fd.get('email')    || '').trim();
+      const phone    = String(fd.get('phone')    || '').trim();
+      const interest = String(fd.get('interest') || '').trim();
+      const message  = String(fd.get('message')  || '').trim();
 
-      submit.disabled = true;
-      const original = submit.textContent;
-      submit.textContent = 'Sending…';
-      try {
-        const res = await fetch(LEADS_API_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-          keepalive: true,
-          mode: 'cors',
-        });
-        if (!res.ok) throw new Error('Server returned ' + res.status);
-        okEl.textContent = 'Sent. We\'ll reply within one working day.';
-        form.reset();
-        submit.textContent = 'Sent ✓';
-      } catch (err) {
-        errEl.textContent = 'Couldn\'t send · please email hello@excelsiorconsultancy.com directly.';
-        submit.textContent = original;
-        submit.disabled = false;
-      }
+      const subject = 'New enquiry from ' + name;
+      const bodyLines = [
+        'Name: '     + name,
+        'Email: '    + email,
+        'Phone: '    + (phone    || '(not provided)'),
+        'Interest: ' + (interest || '(not specified)'),
+        '',
+        'Message:',
+        message || '(no message)',
+        '',
+        '·',
+        'Sent via the Excelsior Consultancy contact form.',
+      ];
+      const mailto =
+        'mailto:' + CONTACT_EMAIL +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(bodyLines.join('\n'));
+
+      // Open the visitor's mail client. After this, give them a
+      // success acknowledgement on the page so they know what
+      // happened.
+      window.location.href = mailto;
+      okEl.textContent = 'Opening your email client. If nothing happened, email ' + CONTACT_EMAIL + ' directly.';
     });
   </script>
 </body>

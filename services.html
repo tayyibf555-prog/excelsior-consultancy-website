@@ -3,24 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Excelsior Consultancy services. Algorithmic trading systems, account management for live and prop firm accounts, prop firm advisory, and fintech consulting.">
+  <meta name="description" content="Excelsior Consultancy services. Algorithmic trading advisory, account management, prop firm advisory, and fintech consulting. Four practice areas, one method.">
   <meta name="theme-color" content="#070503">
   <title>Services · Excelsior Consultancy</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M5 28 L16 6 L25 24 M22 18 L25 24 L19 22' fill='none' stroke='%23C9A45E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="logo/favicon-32.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="intro.js" defer></script>
 </head>
 <body>
+  <!-- ============================================
+       Unicorn Studio aura background · sits behind
+       all content, tinted via CSS to read in the
+       brand's black + antique-gold palette. The
+       loader script self-guards against double init
+       so it's safe to include on every page.
+       ============================================ -->
+  <div class="aura-background-component" aria-hidden="true">
+    <div data-us-project="TIWE0oFfvUmetsFoxL6u"></div>
+    <script type="text/javascript">
+      !function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();
+    </script>
+  </div>
 
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a href="index.html" class="brand" aria-label="Excelsior Consultancy">
-        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-          <path d="M5 28 L16 6 L25 24 M22 18 L25 24 L19 22"/>
-        </svg>
+        <img class="brand-mark" src="logo/excelsior-loader-transparent.png" alt="" aria-hidden="true" width="32" height="32">
         <span class="brand-name">Excelsior</span>
         <span class="brand-suffix">Consultancy</span>
       </a>
@@ -33,7 +45,7 @@
         </ul>
       </nav>
       <div class="nav-cta">
-        <a href="contact.html" class="btn btn-primary">Book a call →</a>
+        <a href="contact.html" class="btn btn-primary">Speak to the team →</a>
       </div>
       <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu">Menu</button>
     </div>
@@ -41,177 +53,193 @@
 
   <main>
 
-    <!-- ============================================
-         PAGE HEADER
-         ============================================ -->
+    <!-- ============================================ PAGE HEADER ============================================ -->
     <section class="page-header">
       <div class="container">
         <span class="label">Services</span>
         <h1>Four practice areas. One method.</h1>
-        <p class="lead">Engagements are scoped before they start. Deliverables, timelines, and pricing are agreed on the discovery call. Nothing begins without a written brief.</p>
+        <p class="lead">Every engagement runs through the same five-phase method: discovery, diagnostic, design, deploy, review. The work below describes what we do inside that method.</p>
       </div>
     </section>
 
-    <!-- ============================================
-         01 · ALGORITHMIC TRADING (the Algo product, subtle link)
-         ============================================ -->
+    <!-- ============================================ 01 · ALGORITHMIC TRADING ADVISORY ============================================ -->
     <section class="section" id="algorithmic">
       <div class="container">
         <article class="service-detail">
           <div class="service-detail-meta">
-            <span class="label">01 / Algorithmic trading</span>
-            <h2>Mechanical systems for Nasdaq and Gold.</h2>
-            <p>Built around a dual-logic architecture. Classic ORB as the primary entry; Revised FVG as backup. 30+ configurable parameters. Conservative defaults.</p>
+            <span class="label">Practice 01</span>
+            <h2>Algorithmic trading advisory.</h2>
+            <p>For traders running a systematic strategy, or considering one. We advise on the system, the parameters, the integration, and the post-deployment review. Where it helps, we use our own published product; where it doesn't, we work with what the client has.</p>
           </div>
           <div class="service-detail-body">
-            <h3>What's included</h3>
-            <p>Purchase the bot once. Onboarding configures the strategy to your account size and risk profile. The TradingView indicator is included with the Gold MT5 bot.</p>
+            <h3>Who this is for</h3>
+            <p>Private clients trading their own capital, prop-funded operators preparing for evaluation or scaling, and small funds adding systematic execution to a discretionary book.</p>
+
+            <h3>What we do</h3>
             <ul class="service-list">
               <li>
                 <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 11 L8 15 L16 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Gold MT5 bot, dual-logic architecture, hard pre-trade stop losses</span>
+                <span>Strategy diagnostic, including a risk-parameter audit against your account size and risk tolerance</span>
               </li>
               <li>
                 <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 11 L8 15 L16 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>FX bot, foreign-exchange engine on the same architecture</span>
+                <span>Broker selection, integration through TradingView webhook orders or platform-native execution</span>
               </li>
               <li>
                 <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 11 L8 15 L16 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Crypto bot, recommended once profits from Gold or FX have established a base</span>
+                <span>Quarterly performance review against the agreed baseline; written report with adjustments</span>
               </li>
               <li>
                 <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 11 L8 15 L16 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Published performance metrics, audit of backtest data on request</span>
+                <span>Optional: deployment of <a href="https://algobyexcelsiorwebsite.vercel.app" target="_blank" rel="noopener" style="color: var(--gold);">Algo by Excelsior</a>, the firm's flagship trading product</span>
               </li>
             </ul>
-            <p class="muted" style="font-size:0.875rem;">Algo by Excelsior is the firm's flagship trading product. The product site carries verified figures and the full specification.</p>
-            <a href="contact.html" class="btn btn-ghost">Discuss the bots →</a>
+
+            <h3>Engagement</h3>
+            <p>Project work or ongoing retainer. Typical first engagement is a diagnostic plus integration, scoped over four to six weeks.</p>
+
+            <div style="display:flex; gap:0.85rem; flex-wrap:wrap; margin-top: 1rem;">
+              <a href="contact.html" class="btn btn-primary">Discuss the work →</a>
+              <a href="https://algobyexcelsiorwebsite.vercel.app" target="_blank" rel="noopener" class="btn btn-ghost">View Algo by Excelsior</a>
+            </div>
           </div>
         </article>
 
-        <!-- ============================================
-             02 · ACCOUNT MANAGEMENT
-             ============================================ -->
+        <!-- ============================================ 02 · ACCOUNT MANAGEMENT ============================================ -->
         <article class="service-detail" id="account-management">
           <div class="service-detail-meta">
-            <span class="label">02 / Account management</span>
-            <h2>Cloud automation for live and prop firm accounts.</h2>
-            <p>Subscription service. The strategy executes on our cloud; you keep your broker credentials. Trades mirror across the account you nominate.</p>
+            <span class="label">Practice 02</span>
+            <h2>Account management.</h2>
+            <p>For clients who'd rather not run the bot themselves. We execute the agreed strategy on cloud infrastructure connected to the client's nominated accounts. The client keeps their broker credentials; the operational risk sits with us.</p>
           </div>
           <div class="service-detail-body">
-            <h3>How it works</h3>
-            <p>One subscription connects one account. Additional accounts can be added on the same strategy with separate execution. The set-up takes place on the onboarding call so the integration is verified live before anything trades.</p>
+            <h3>Who this is for</h3>
+            <p>Clients with live cash accounts or prop-funded accounts who want systematic execution without managing the cloud, the broker connection, or the day-to-day uptime.</p>
+
+            <h3>What we do</h3>
             <ul class="service-list">
               <li>
                 <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 11 L8 15 L16 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Single-account connection automated on our cloud</span>
+                <span>Cloud-based execution infrastructure, with uptime monitoring and failover</span>
               </li>
               <li>
                 <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 11 L8 15 L16 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Compatible with prop-funded accounts in the $50k to $300k range</span>
+                <span>Strategy attached to the client's account via TraderPost; trades mirror across the nominated accounts</span>
               </li>
               <li>
                 <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 11 L8 15 L16 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Same applies to live cash accounts at your existing broker</span>
+                <span>Multi-account management with per-account risk isolation</span>
               </li>
               <li>
                 <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 11 L8 15 L16 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Clients retain credentials; we attach the strategy and trades mirror across</span>
+                <span>Monthly statement reconciliation against the broker's record of trades</span>
               </li>
             </ul>
-            <h4 style="margin-top:0.5rem; margin-bottom:0.65rem;">Supported brokers</h4>
-            <p style="font-size:0.9375rem;">TradeStation, Tradovate, Webull UK, Interactive Brokers, NinjaTrader. Connection happens via TraderPost. Other brokers possible on request.</p>
-            <a href="contact.html" class="btn btn-ghost">Discuss automation →</a>
+
+            <h3>Brokers we work with</h3>
+            <p>TradeStation, Tradovate, Webull UK, Interactive Brokers, NinjaTrader. Connection via TraderPost. Other brokers possible on request.</p>
+
+            <h3>Engagement</h3>
+            <p>Ongoing subscription. One subscription per connected account; additional accounts can be added on the same strategy.</p>
+
+            <div style="display:flex; gap:0.85rem; flex-wrap:wrap; margin-top: 1rem;">
+              <a href="contact.html" class="btn btn-primary">Discuss your account →</a>
+            </div>
           </div>
         </article>
 
-        <!-- ============================================
-             03 · PROP FIRM ADVISORY
-             ============================================ -->
+        <!-- ============================================ 03 · PROP FIRM ADVISORY ============================================ -->
         <article class="service-detail" id="prop-firm">
           <div class="service-detail-meta">
-            <span class="label">03 / Prop firm advisory</span>
-            <h2>Funded accounts without the surprises.</h2>
-            <p>Each prop firm has its own evaluation rules, drawdown limits, and payout terms. The right configuration starts before the first trade, not after the first violation.</p>
+            <span class="label">Practice 03</span>
+            <h2>Prop firm advisory.</h2>
+            <p>Funded-trader operators face a different problem from retail clients. The firm's rules matter more than the strategy. Configuration starts before the first trade, not after the first violation.</p>
           </div>
           <div class="service-detail-body">
-            <h3>Where we help</h3>
-            <p>From firm selection through evaluation, scaling, and funded payouts. We work with the major prop firms and have configured the strategy across every account size in their range.</p>
+            <h3>Who this is for</h3>
+            <p>Operators going through evaluation, scaling between firms, or running multiple funded accounts in parallel. Account sizes $50k through $300k.</p>
+
+            <h3>What we do</h3>
             <ul class="service-list">
               <li>
                 <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 11 L8 15 L16 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Selecting the right prop firm for your account size and trading style</span>
+                <span>Firm-fit assessment against your trading style and account size</span>
               </li>
               <li>
                 <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 11 L8 15 L16 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Drawdown-aware sizing tuned to firm-specific equity and daily-loss rules</span>
+                <span>Drawdown-aware position sizing tuned to firm-specific equity and daily-loss rules</span>
               </li>
               <li>
                 <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 11 L8 15 L16 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Multi-account management on the same strategy with per-account risk isolation</span>
+                <span>Multi-account roadmap from evaluation to funded scaling to payout consistency</span>
               </li>
               <li>
                 <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 11 L8 15 L16 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Documented process from evaluation through to funded scaling</span>
+                <span>Documented process so the work is repeatable across firms and account sizes</span>
               </li>
             </ul>
-            <h4 style="margin-top:0.5rem; margin-bottom:0.65rem;">Firms we work with</h4>
-            <p style="font-size:0.9375rem;">Apex Trader Funding, Lucid Trading, TopStep, Tradeify, Alpha Futures, Funded Next. Configuration adjusts for the specific rule set of each firm.</p>
-            <a href="contact.html" class="btn btn-ghost">Discuss your account →</a>
+
+            <h3>Firms we work with</h3>
+            <p>Apex Trader Funding, Lucid Trading, TopStep, Tradeify, Alpha Futures, Funded Next. Configuration adjusts for each firm's rule set.</p>
+
+            <h3>Engagement</h3>
+            <p>Project work for a single firm and account size, or ongoing retainer for operators running multiple accounts.</p>
+
+            <div style="display:flex; gap:0.85rem; flex-wrap:wrap; margin-top: 1rem;">
+              <a href="contact.html" class="btn btn-primary">Discuss your accounts →</a>
+            </div>
           </div>
         </article>
 
-        <!-- ============================================
-             04 · FINTECH CONSULTING (B2B)
-             ============================================ -->
+        <!-- ============================================ 04 · FINTECH CONSULTING ============================================ -->
         <article class="service-detail" id="fintech">
           <div class="service-detail-meta">
-            <span class="label">04 / Fintech consulting</span>
-            <h2>Trading infrastructure for other firms.</h2>
-            <p>For businesses that need broker connectivity, cloud execution, or systematic strategy work as part of a larger build. Bespoke engagements scoped against a written brief.</p>
+            <span class="label">Practice 04</span>
+            <h2>Fintech consulting.</h2>
+            <p>For businesses that need trading infrastructure or systematic strategy capability as part of a larger build. Brokerage platforms, asset managers, fintech start-ups, research desks. Engagements are scoped against a written brief.</p>
           </div>
           <div class="service-detail-body">
-            <h3>Where we add value</h3>
-            <p>The same disciplines that produce verifiable retail performance apply to enterprise problems. We work with fintechs, asset managers, and traditional financial firms that want to plug systematic execution into an existing stack without building the infrastructure in-house.</p>
+            <h3>Who this is for</h3>
+            <p>Firms that want to plug systematic execution into an existing stack without staffing a quantitative team for the build phase. We deliver, document, and hand over.</p>
+
+            <h3>What we do</h3>
             <ul class="service-list">
               <li>
                 <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 11 L8 15 L16 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Broker integration and TradingView webhook routing at scale</span>
+                <span>Broker integration architecture, including TradingView webhook routing and platform-native execution</span>
               </li>
               <li>
                 <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 11 L8 15 L16 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Cloud execution architecture, including failover and observability</span>
+                <span>Cloud execution stack with failover, observability, and reconciliation tooling</span>
               </li>
               <li>
                 <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 11 L8 15 L16 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Strategy research and backtest infrastructure aligned with audit standards</span>
+                <span>Strategy research, backtest infrastructure, and audit standards aligned with internal compliance</span>
               </li>
               <li>
                 <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 11 L8 15 L16 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Risk frameworks, position-sizing logic, and operational documentation</span>
+                <span>Risk frameworks, position-sizing logic, and full operational documentation</span>
               </li>
             </ul>
-            <p class="muted" style="font-size:0.875rem;">Engagements run from short statements-of-work through long-term retainers. We're selective; not every brief is a fit, and we'll say so.</p>
-            <a href="contact.html" class="btn btn-ghost">Discuss your brief →</a>
+
+            <h3>Engagement</h3>
+            <p>Fixed-scope project work from a few weeks through to a few quarters, or ongoing retainer where the relationship needs to be continuous. We're selective; not every brief is a fit.</p>
+
+            <div style="display:flex; gap:0.85rem; flex-wrap:wrap; margin-top: 1rem;">
+              <a href="contact.html" class="btn btn-primary">Discuss your brief →</a>
+            </div>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- ============================================
-         FINAL CTA
-         ============================================ -->
+    <!-- ============================================ FINAL CTA ============================================ -->
     <section class="final-cta section-divider">
       <div class="container">
         <article class="final-cta-card">
-          <div class="final-cta-line" aria-hidden="true">
-            <svg viewBox="0 0 1200 320" preserveAspectRatio="none">
-              <path d="M-20,300 C200,280 380,240 560,200 C740,160 880,120 1020,80 C1160,40 1280,20 1480,5"/>
-            </svg>
-          </div>
           <span class="label">Talk first, build later</span>
           <h2>Not every brief is a fit. We'll tell you.</h2>
-          <p class="lead">Bring the actual problem you're trying to solve. We'll either scope it, route you to someone better placed, or be straight that it isn't for us.</p>
+          <p class="lead">Bring the actual problem you're trying to solve. We'll scope it, route you to someone better placed, or be straight that it isn't for us.</p>
           <a href="contact.html" class="btn btn-light">Book a discovery call →</a>
         </article>
       </div>
@@ -227,7 +255,7 @@
           <span class="sep">·</span>
           <span>UK</span>
           <span class="sep">·</span>
-          <span>Live since 2023</span>
+          <span>Operating since 2023</span>
         </div>
         <ul class="footer-links">
           <li><a href="services.html">Services</a></li>
@@ -235,7 +263,7 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      <p class="footer-disclaimer">Excelsior Consultancy provides automated trading software and consulting services. Not regulated investment advice. Trading carries risk of capital loss; past performance does not guarantee future results. Quoted figures are based on backtest and forward-test data; verified statements available on request. Algo by Excelsior is the firm's flagship trading product.</p>
+      <p class="footer-disclaimer">Excelsior Consultancy provides consulting services, software, and execution. We are not authorised or regulated by the Financial Conduct Authority and do not provide regulated investment advice. Trading carries the risk of capital loss; past performance does not guarantee future results. Quoted figures are based on backtest and forward-test data; verified statements available on request. <a href="https://algobyexcelsiorwebsite.vercel.app" target="_blank" rel="noopener" style="color: var(--gold);">Algo by Excelsior</a> is the firm's flagship trading product.</p>
     </div>
   </footer>
 
