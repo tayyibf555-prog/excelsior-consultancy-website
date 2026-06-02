@@ -45,7 +45,7 @@
         </ul>
       </nav>
       <div class="nav-cta">
-        <a href="#book" class="btn btn-primary">Book a call →</a>
+        <a href="https://calendly.com/excelsioralgo/excelsior-consulting-meeting" target="_blank" rel="noopener" class="btn btn-primary">Book a call →</a>
       </div>
       <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu">Menu</button>
     </div>
@@ -127,7 +127,7 @@
               <span class="label">Discovery call</span>
               <h3>Fifteen minutes, free</h3>
               <p>Bring the actual problem you're trying to solve. If a call doesn't fit, write to us instead.</p>
-              <p style="margin-top: 0.75rem;"><a href="#" id="bookingLink">Book a slot →</a></p>
+              <p style="margin-top: 0.75rem;"><a href="https://calendly.com/excelsioralgo/excelsior-consulting-meeting" target="_blank" rel="noopener" id="bookingLink">Book a slot →</a></p>
             </div>
 
             <div class="contact-meta-block">
@@ -199,22 +199,9 @@
     // ready, swap the submit handler.
     // ==========================================================
     const CONTACT_EMAIL = 'hello@excelsiorconsultancy.com';
-    const BOOKING_URL   = ''; // Set to Calendly link when ready
-
-    // Wire the discovery-call link
-    const bookingLink = document.getElementById('bookingLink');
-    if (bookingLink) {
-      if (BOOKING_URL) {
-        bookingLink.href = BOOKING_URL;
-        bookingLink.target = '_blank';
-        bookingLink.rel = 'noopener';
-      } else {
-        bookingLink.addEventListener('click', (e) => {
-          e.preventDefault();
-          document.getElementById('cf-name').focus();
-        });
-      }
-    }
+    // Note: the booking link's href is set directly in the HTML
+    // (https://calendly.com/excelsioralgo/excelsior-consulting-meeting)
+    // so no JS wiring is required for it any more.
 
     const form    = document.getElementById('contactForm');
     const errEl   = document.getElementById('formError');
