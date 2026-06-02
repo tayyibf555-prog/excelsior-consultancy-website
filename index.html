@@ -484,52 +484,66 @@
           <p class="lead">A selection of unattributed comments from completed engagements. Real testimonials, real names available on request.</p>
         </div>
 
-        <div class="q-testimonials">
+        <div class="q-testimonials-wrap" id="testimonialsWrap">
+          <div class="q-testimonials" id="testimonialsRail">
 
-          <article class="q-testimonial">
-            <p class="q-testimonial-quote">The first consultancy I've worked with that publishes the worst week as readily as the best. The discovery call was the most useful 15 minutes I've spent on this in a year.</p>
-            <div class="q-testimonial-meta">
-              <div class="q-testimonial-avatar">DM</div>
-              <div>
-                <span class="q-testimonial-name">Private client</span>
-                <span class="q-testimonial-role">Prop-funded operator · London</span>
+            <article class="q-testimonial">
+              <p class="q-testimonial-quote">The first consultancy I've worked with that publishes the worst week as readily as the best. The discovery call was the most useful 15 minutes I've spent on this in a year.</p>
+              <div class="q-testimonial-meta">
+                <div class="q-testimonial-avatar">DM</div>
+                <div>
+                  <span class="q-testimonial-name">Private client</span>
+                  <span class="q-testimonial-role">Prop-funded operator · London</span>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <article class="q-testimonial">
-            <p class="q-testimonial-quote">We needed broker integration done once and handed over. They scoped it in writing, delivered on the timeline, and documented every component. No drama.</p>
-            <div class="q-testimonial-meta">
-              <div class="q-testimonial-avatar">SF</div>
-              <div>
-                <span class="q-testimonial-name">Founder</span>
-                <span class="q-testimonial-role">Fintech start-up · Manchester</span>
+            <article class="q-testimonial">
+              <p class="q-testimonial-quote">We needed broker integration done once and handed over. They scoped it in writing, delivered on the timeline, and documented every component. No drama.</p>
+              <div class="q-testimonial-meta">
+                <div class="q-testimonial-avatar">SF</div>
+                <div>
+                  <span class="q-testimonial-name">Founder</span>
+                  <span class="q-testimonial-role">Fintech start-up · Manchester</span>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <article class="q-testimonial">
-            <p class="q-testimonial-quote">Took my Apex account through evaluation and into funded scaling. The configuration was firm-specific from day one; I'd previously blown two evaluations using a one-size strategy.</p>
-            <div class="q-testimonial-meta">
-              <div class="q-testimonial-avatar">RK</div>
-              <div>
-                <span class="q-testimonial-name">Prop trader</span>
-                <span class="q-testimonial-role">Multi-account operator</span>
+            <article class="q-testimonial">
+              <p class="q-testimonial-quote">Took my Apex account through evaluation and into funded scaling. The configuration was firm-specific from day one; I'd previously blown two evaluations using a one-size strategy.</p>
+              <div class="q-testimonial-meta">
+                <div class="q-testimonial-avatar">RK</div>
+                <div>
+                  <span class="q-testimonial-name">Prop trader</span>
+                  <span class="q-testimonial-role">Multi-account operator</span>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <article class="q-testimonial">
-            <p class="q-testimonial-quote">Quarterly review is genuinely a review, not a sales call. They show what's working, what isn't, and the adjustment they'd propose. No hard sell on the next package.</p>
-            <div class="q-testimonial-meta">
-              <div class="q-testimonial-avatar">AL</div>
-              <div>
-                <span class="q-testimonial-name">Asset manager</span>
-                <span class="q-testimonial-role">Boutique fund · Glasgow</span>
+            <article class="q-testimonial">
+              <p class="q-testimonial-quote">Quarterly review is genuinely a review, not a sales call. They show what's working, what isn't, and the adjustment they'd propose. No hard sell on the next package.</p>
+              <div class="q-testimonial-meta">
+                <div class="q-testimonial-avatar">AL</div>
+                <div>
+                  <span class="q-testimonial-name">Asset manager</span>
+                  <span class="q-testimonial-role">Boutique fund · Glasgow</span>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
 
+          </div>
+        </div>
+
+        <div class="q-testimonials-controls">
+          <span class="q-test-hint">Swipe or drag</span>
+          <div class="q-test-arrows">
+            <button class="q-test-arrow" id="testimonialsPrev" type="button" aria-label="Previous testimonial">
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3 L4 7 L9 11"/></svg>
+            </button>
+            <button class="q-test-arrow" id="testimonialsNext" type="button" aria-label="Next testimonial">
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3 L10 7 L5 11"/></svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -596,6 +610,74 @@
     if (menuBtn && navLinks) {
       menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
     }
+
+    // Testimonials · horizontal scroll rail with drag + arrows
+    (function() {
+      const rail   = document.getElementById('testimonialsRail');
+      const wrap   = document.getElementById('testimonialsWrap');
+      const prev   = document.getElementById('testimonialsPrev');
+      const next   = document.getElementById('testimonialsNext');
+      if (!rail || !wrap) return;
+
+      // Update edge-fade state + disable arrows at the ends
+      function updateState() {
+        const max = rail.scrollWidth - rail.clientWidth;
+        const atStart = rail.scrollLeft <= 2;
+        const atEnd   = rail.scrollLeft >= max - 2;
+        wrap.classList.toggle('scrolled-start', !atStart);
+        wrap.classList.toggle('scrolled-end',   atEnd);
+        if (prev) prev.disabled = atStart;
+        if (next) next.disabled = atEnd;
+      }
+      rail.addEventListener('scroll', updateState, { passive: true });
+      window.addEventListener('resize', updateState);
+      updateState();
+
+      // Step size · the width of one card plus its gap
+      function step() {
+        const card = rail.querySelector('.q-testimonial');
+        if (!card) return 320;
+        const gap = parseFloat(getComputedStyle(rail).columnGap || '16');
+        return card.offsetWidth + gap;
+      }
+      if (prev) prev.addEventListener('click', () => rail.scrollBy({ left: -step(), behavior: 'smooth' }));
+      if (next) next.addEventListener('click', () => rail.scrollBy({ left:  step(), behavior: 'smooth' }));
+
+      // Mouse drag to scroll (desktop) · touch is native
+      let isDown = false;
+      let startX = 0;
+      let startScroll = 0;
+      let moved = false;
+      rail.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return;
+        isDown = true;
+        moved = false;
+        startX = e.pageX;
+        startScroll = rail.scrollLeft;
+        rail.classList.add('dragging');
+      });
+      window.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        const dx = e.pageX - startX;
+        if (Math.abs(dx) > 4) moved = true;
+        rail.scrollLeft = startScroll - dx;
+      });
+      window.addEventListener('mouseup', () => {
+        if (!isDown) return;
+        isDown = false;
+        rail.classList.remove('dragging');
+        // Snap back into a card boundary
+        if (moved) {
+          const s = step();
+          const target = Math.round(rail.scrollLeft / s) * s;
+          rail.scrollTo({ left: target, behavior: 'smooth' });
+        }
+      });
+      // Don't let the drag-end click fire links if the user actually dragged
+      rail.addEventListener('click', (e) => {
+        if (moved) { e.preventDefault(); e.stopPropagation(); }
+      }, true);
+    })();
 
     // Market panel · UTC clock ticking every second
     (function() {
