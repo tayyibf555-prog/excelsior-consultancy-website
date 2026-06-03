@@ -1468,12 +1468,12 @@ p { margin: 0; }
   pointer-events: none;
 }
 .product-mark {
-  width: 88px;
-  height: 88px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
   position: relative;
   z-index: 1;
-  filter: drop-shadow(0 0 18px rgba(201, 164, 94, 0.35));
+  filter: drop-shadow(0 0 14px rgba(201, 164, 94, 0.35));
 }
 .product-name-block {
   text-align: center;
